@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+ 	<table border="1">
+		<tr th:each="lead: ${leads}">
+			<td th:text="${lead.company}" />
+			<td th:text="${lead.id}" />
+		</tr>
+	</table> 
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/CasePage.js}"></script>
+
+<body>
+	<label>Enter your Case Number:
+		<input type="text" id="plID" name="plID">
+	</label>
+	<button onclick="callServer()">Get Case</button>
+	<table>
+		<tr>
+			<td>Id: </td>
+			<td><input type="text" id="id" disabled /></td>
+		</tr>
+		<tr>
+			<td>Age of Business: </td>
+			<td><input type="text" id="ageOfBusiness" /></td>
+		</tr>
+		<tr>
+			<td>Employee Count: </td>
+			<td><input type="text" id="employeeCount" /></td>
+		</tr>
+		<tr>
+			<td>City: </td>
+			<td><input type="text" id="city" /></td>
+		</tr>
+		<tr>
+			<td>Company: </td>
+			<td><input type="text" id="company" /></td>
+		</tr>
+		<tr>
+			<td>Industry: </td>
+			<td><input type="text" id="industry" /></td>
+		</tr>
+		<tr>
+			<td>Area: </td>
+			<td><input type="text" id="area" /></td>
+		</tr>
+		<tr>
+			<td>Street: </td>
+			<td><input type="text" id="street" /></td>
+		</tr>
+		<tr>
+			<td>State: </td>
+			<td><input type="text" id="state" /></td>
+		</tr>
+		<tr>
+			<td>Zip Code: </td>
+			<td><input type="text" id="zipCode" /></td>
+		</tr>
+		<tr>
+			<td>Website: </td>
+			<td><input type="text" id="website" /></td>
+		</tr>
+		<tr>
+			<td>URL: </td>
+			<td id="url"></td>
+		</tr>
+	</table>
+</body>
+
+</html>
