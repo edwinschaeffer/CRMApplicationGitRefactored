@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Upload Excel</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action="/dbUpload">
+    	<table>
+    		<tr>
+    			<td></td>
+    			<td></td>
+    		</tr>
+    		 <tr>
+    			<td>
+    				<span>
+    				 	  <input type="radio" id="csv" name="fileType" value="csv">
+    					  <label for="csv">CSV File</label>
+    				</span>
+    				 <span>
+    				 	  <input type="radio" id="excel" name="fileType" value="excel">
+    					  <label for="excel">Excel File</label>
+    				</span>
+    			</td>
+    			<td>
+                <input type="file" name="file" />
+    			<input type="submit" name="Upload" /></td>
+    		</tr>
+    	</table>
+    </form>
+</body>
+
+</html>

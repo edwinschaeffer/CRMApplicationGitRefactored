@@ -35,4 +35,8 @@ public class CasePageController {
 		ObjectMapper om = new ObjectMapper();
 		return om.writeValueAsString(cpDAO.getPLByIdJPA(plId));
 	}
+	@GetMapping("/dbUpload")
+	public String getDbUploadPage() {
+		return "uploadSpreadsheet.html";
+	}
 }

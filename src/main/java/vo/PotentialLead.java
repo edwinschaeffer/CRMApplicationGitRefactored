@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "POTENTIAL_LEADS")
@@ -15,7 +16,9 @@ public class PotentialLead {
 	private String ageOfBusiness;
 	private String city;
 	private String company;
+	@Transient
 	private String convertedDate;
+	@Transient
 	private String convertedLeadId;
 	private String country;
 	private String area;
