@@ -2,7 +2,9 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
@@ -35,5 +37,19 @@ public interface PotentialLeadMapper {
 	@ResultMap("plResultMap")
 	@Select("SELECT * from POTENTIAL_LEADS WHERE ID = #{plID}")
 	public PotentialLead getPLById(String plID);
+	
+	@Insert({"<script>", 
+		"INSERT INTO POTENTIAL_LEADS", 
+		"(ID, COMPANY, CITY)", 
+		"VALUES", 
+		  "<foreach collection='pl' item='potentialLead' open='' seperator=',' close=''>",
+		     "(", 
+		        "#{potentialLead.ID},", 
+		        "#{potentialLead.CITY},",
+		        "#{potentialLead.COMPANY}", 
+		     ")", 
+		   "</foreach>",
+		 "</script>"})
+	public int insertPLBatch(@Param("pl") List<PotentialLead> pl);
 	
 }

@@ -7,4 +7,5 @@ import vo.PotentialLead;
 public interface PotentialLeadRepository extends JpaRepository<PotentialLead, String> {
 
 	PotentialLead findByid(String id);
+	PotentialLead findByCompany(String company);
 }

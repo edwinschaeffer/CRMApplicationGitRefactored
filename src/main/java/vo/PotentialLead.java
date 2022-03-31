@@ -15,6 +15,7 @@ public class PotentialLead {
 	@Column(nullable = true, name = "AGE_OF_BUSINESS")
 	private String ageOfBusiness;
 	private String city;
+	@Column(nullable = true, name = "COMPANY")
 	private String company;
 	@Transient
 	private String convertedDate;

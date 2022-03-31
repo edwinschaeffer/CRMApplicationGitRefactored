@@ -24,14 +24,14 @@ public class FileUploadService {
 	@Autowired
 	private FileUploadDAO flDAO;
 	
-	public void transformExceltoPL(MultipartFile file) throws IOException {
+	public List<PotentialLead> transformExceltoPL(MultipartFile file) throws IOException {
 		InputStream is = file.getInputStream();
 		Workbook wb = WorkbookFactory.create(is);
 		Sheet sheet = wb.getSheet("extradata");
 		DataFormatter formatter = new DataFormatter();
 		List<PotentialLead> plList = new ArrayList<PotentialLead>();
 		
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < sheet.getLastRowNum(); i++) {
 			Row row = sheet.getRow(i);
 			PotentialLead pl = new PotentialLead();
 			for (int j = 0; j < 17; j++) {
@@ -40,8 +40,60 @@ public class FileUploadService {
 				if (cellValue == null) {
 					continue;
 				}
-				System.out.println(cellValue);
+				// Use case for Aspect Oriented Programming - Will revisit this.
+				switch(j) {
+					case 0:
+						pl.setId(transformString(cellValue));
+					break;
+					case 1:
+						pl.setAgeOfBusiness(cellValue);
+					break;
+					case 2:
+						pl.setCity(cellValue);
+						break;
+					case 3:
+						pl.setCompany(cellValue);
+						break;
+					case 5:
+						pl.setArea(cellValue);
+						break;
+					case 6:
+						pl.setEmployeeCount(cellValue);
+						break;
+					case 7:
+						pl.setIndustry(cellValue);
+						break;
+					case 8:
+						pl.setPhone(cellValue);
+						break;
+					case 9: 
+						pl.setPotentialLeadLocationLatitude(transformString(cellValue));
+						break;
+					case 10:
+						pl.setPotentialLeadLocationLongitude(transformString(cellValue));
+						break;
+					case 11:
+						pl.setSector(cellValue);
+						break;
+					case 12:
+						pl.setState(cellValue);
+						break;
+					case 13:
+						pl.setStreet(cellValue);
+						break;
+					case 14:
+						pl.setWebsite(cellValue);
+						break;
+					case 15:
+						pl.setZipCode(cellValue);
+						break;
+				}
 			}
+			plList.add(pl);
 		}
+		return plList;
+	}
+	private String transformString(String s) {
+		return s.replaceAll("\'", "");
 	}
 }
