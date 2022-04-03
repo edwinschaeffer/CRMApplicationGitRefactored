@@ -27,8 +27,8 @@ public class DbUploadController {
 	
 	@PostMapping(value = "/dbUpload")
 	public @ResponseBody String uploadSpreadSheet(@RequestParam("file") MultipartFile file) throws IOException {
-	//	fudao.insertPLlistMyBatisBatch(flu.transformExceltoPL(file));
-		fudao.insertPLlistJPABatch(flu.transformExceltoPL(file));
+		fudao.insertPLlistMyBatisBatch(flu.transformExceltoPL(file));
+	//	fudao.insertPLlistJPABatch(flu.transformExceltoPL(file));
 		return null;
 	}
 }
