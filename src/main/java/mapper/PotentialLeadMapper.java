@@ -39,15 +39,11 @@ public interface PotentialLeadMapper {
 	public PotentialLead getPLById(String plID);
 	
 	@Insert({"<script>", 
-		"INSERT INTO POTENTIAL_LEADS", 
-		"(ID, COMPANY, CITY)", 
-		"VALUES", 
-		  "<foreach collection='pl' item='potentialLead' open='(' separator='),(' close=')'>",
-		     "(", 
-		        "#{potentialLead.id},", 
+		"INSERT INTO POTENTIAL_LEADS (ID, CITY, COMPANY) VALUES", 
+		  "<foreach collection='pl' item='potentialLead' open='' separator=',' close=''>",
+		        "(#{potentialLead.id},", 
 		        "#{potentialLead.city},",
-		        "#{potentialLead.company}", 
-		     ")", 
+		        "#{potentialLead.company})", 
 		   "</foreach>",
 		 "</script>"})
 	public int insertPLBatch(@Param("pl") List<PotentialLead> pl);
