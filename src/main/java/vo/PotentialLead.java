@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "POTENTIAL_LEADS")
 public class PotentialLead {
@@ -13,6 +16,7 @@ public class PotentialLead {
 	@Column(nullable = false, name = "ID")
 	private String id;
 	@Column(nullable = true, name = "AGE_OF_BUSINESS")
+	@JsonAlias("age_of_biz")
 	private String ageOfBusiness;
 	private String city;
 	@Column(nullable = true, name = "COMPANY")
@@ -187,4 +191,16 @@ public class PotentialLead {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
+	@Override
+	public String toString() {
+		return "PotentialLead [id=" + id + ", ageOfBusiness=" + ageOfBusiness + ", city=" + city + ", company="
+				+ company + ", convertedDate=" + convertedDate + ", convertedLeadId=" + convertedLeadId + ", country="
+				+ country + ", area=" + area + ", employeeCount=" + employeeCount + ", industry=" + industry
+				+ ", phone=" + phone + ", potentialLeadLocationLatitude=" + potentialLeadLocationLatitude
+				+ ", potentialLeadLocationLongitude=" + potentialLeadLocationLongitude + ", sector=" + sector
+				+ ", state=" + state + ", status=" + status + ", street=" + street + ", website=" + website
+				+ ", zipCode=" + zipCode + "]";
+	}
+	
+	
 }

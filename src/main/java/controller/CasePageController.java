@@ -39,4 +39,11 @@ public class CasePageController {
 	public String getDbUploadPage() {
 		return "uploadSpreadsheet.html";
 	}
+	
+	@GetMapping("/map")
+	public String getGoogleMap(Model model) throws JsonProcessingException {
+		ObjectMapper om = new ObjectMapper();
+        model.addAttribute("plList", om.writeValueAsString(cpDAO.getAllPLs()));
+		return "map.html";
+	}
 }

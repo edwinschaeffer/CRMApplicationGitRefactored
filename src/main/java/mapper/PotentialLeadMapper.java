@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Result;
@@ -47,5 +48,10 @@ public interface PotentialLeadMapper {
 		   "</foreach>",
 		 "</script>"})
 	public int insertPLBatch(@Param("pl") List<PotentialLead> pl);
+	
+	@Insert("INSERT INTO POTENTIAL_LEADS (ID, CITY, COMPANY, AGE_OF_BUSINESS) VALUES (#{pl.id}, #{pl.city}, #{pl.company}, #{pl.ageOfBusiness})")
+	@Options(useGeneratedKeys=false, keyProperty="id")
+    public int insertPL(@Param("pl") PotentialLead pl);
+	
 	
 }

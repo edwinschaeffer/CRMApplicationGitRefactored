@@ -32,4 +32,7 @@ public class CasePageDAO {
         pl.setCompany(StringUtils.capitalize(pl.getCompany().toLowerCase()));
 		return pl;
 	}
+	public List<PotentialLead> getAllPLs() {
+		return plRepo.findAll();
+	}
 }
