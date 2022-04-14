@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import vo.PotentialLead;
 
@@ -48,6 +49,18 @@ public interface PotentialLeadMapper {
 		   "</foreach>",
 		 "</script>"})
 	public int insertPLBatch(@Param("pl") List<PotentialLead> pl);
+	
+	@Update({"<script>", 
+			    "<foreach collection='pl' item='potentialLead' index='index' open='' close='' separator=';'>",
+				    "UPDATE POTENTIAL_LEADS",
+				    "<set>",
+				        "newLead=#{potentialLead.newLead},",
+				        "WEBSITE=#{potentialLead.website}",
+				    "</set>",
+				    "WHERE ID = ${potentialLead.id};",
+				"</foreach>",  
+		     "</script>"})
+	public int updatePLBatch(@Param("pl") List<PotentialLead> pl);
 	
 	@Insert("INSERT INTO POTENTIAL_LEADS (ID, CITY, COMPANY, AGE_OF_BUSINESS) VALUES (#{pl.id}, #{pl.city}, #{pl.company}, #{pl.ageOfBusiness})")
 	@Options(useGeneratedKeys=false, keyProperty="id")

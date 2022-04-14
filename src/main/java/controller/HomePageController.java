@@ -2,8 +2,12 @@ package controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.HomePageDAO;
 
@@ -21,5 +25,12 @@ public class HomePageController {
 		System.out.println("getHomePage begin");
         model.addAttribute("leads", hpDAO.getListOfSomePLsMyBatis());
 		return "casePage.html";
+	}
+	@GetMapping("/transformData")
+	public String getTransformedMap(Model model) throws JsonProcessingException {
+		
+		ObjectMapper om = new ObjectMapper();
+        model.addAttribute("plList", om.writeValueAsString(hpDAO.getTransformedList()));
+		return "map.html";
 	}
 }

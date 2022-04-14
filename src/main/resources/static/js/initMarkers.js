@@ -66,6 +66,7 @@ function initMarkers(map) {
 	var infowindow = new google.maps.InfoWindow;
 	var marker, i;
 	for (i = 0; i < markers.length; i++) {
+	
 		marker = new google.maps.Marker({
 			position: new google.maps.LatLng(
 				markers[i].potentialLeadLocationLatitude,

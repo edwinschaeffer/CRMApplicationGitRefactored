@@ -30,6 +30,7 @@ public class PotentialLead {
 	@Column(nullable = true, name = "EMPLOYEE_COUNT")
 	private String employeeCount;
 	private String industry;
+	private Boolean newLead;
 	private String phone;
 	@Column(nullable = true, name = "POTENTIAL_LEAD_LOCATION__LATITUDE__S")
 	private String potentialLeadLocationLatitude;
@@ -42,6 +43,7 @@ public class PotentialLead {
     private String website;
     @Column(nullable = true, name = "ZIP_CODE")
     private String zipCode;
+    
 	
 
 	public String getId() {
@@ -119,7 +121,12 @@ public class PotentialLead {
 	public void setIndustry(String industry) {
 		this.industry = industry;
 	}
-
+	public Boolean getNewLead() {
+		return newLead;
+	}
+	public void setNewLead(Boolean newLead) {
+		this.newLead = newLead;
+	}
 	public String getPhone() {
 		return phone;
 	}
@@ -196,11 +203,12 @@ public class PotentialLead {
 		return "PotentialLead [id=" + id + ", ageOfBusiness=" + ageOfBusiness + ", city=" + city + ", company="
 				+ company + ", convertedDate=" + convertedDate + ", convertedLeadId=" + convertedLeadId + ", country="
 				+ country + ", area=" + area + ", employeeCount=" + employeeCount + ", industry=" + industry
-				+ ", phone=" + phone + ", potentialLeadLocationLatitude=" + potentialLeadLocationLatitude
-				+ ", potentialLeadLocationLongitude=" + potentialLeadLocationLongitude + ", sector=" + sector
-				+ ", state=" + state + ", status=" + status + ", street=" + street + ", website=" + website
-				+ ", zipCode=" + zipCode + "]";
+				+ ", newLead=" + newLead + ", phone=" + phone + ", potentialLeadLocationLatitude="
+				+ potentialLeadLocationLatitude + ", potentialLeadLocationLongitude=" + potentialLeadLocationLongitude
+				+ ", sector=" + sector + ", state=" + state + ", status=" + status + ", street=" + street + ", website="
+				+ website + ", zipCode=" + zipCode + "]";
 	}
+
 	
 	
 }

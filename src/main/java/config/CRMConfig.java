@@ -18,7 +18,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @SpringBootApplication
-@ComponentScan({"controller", "dao", "service"})
+@ComponentScan({"controller", "dao", "service", "config"})
 @MapperScan("mapper")
 @EnableJpaRepositories("repository")
 public class CRMConfig {
