@@ -29,4 +29,16 @@ public class MyBatisBatchInsert implements BatchInsert {
             sqlSession.commit();
         }
 	}
+	
+	@Override
+	@Transactional
+	public void insertBatchPL2Demo(List<PotentialLead> plList) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH)) {
+        	PotentialLeadMapper mapper = sqlSession.getMapper(PotentialLeadMapper.class);
+            for (PotentialLead pl : plList) {
+                mapper.insertPLP2Demo(pl);
+            }
+            sqlSession.commit();
+        }
+	}
 }

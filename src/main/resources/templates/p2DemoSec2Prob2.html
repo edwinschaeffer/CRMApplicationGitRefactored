@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<table border="1">
+    <tr th:each="hd : ${hdList}">
+    	<td><span th:text="${hd.id}"></span></td>
+    	<td><span th:text="${hd.area}"></span></td>
+    	<td><span th:text="${hd.city}"></span></td>
+    	<td><span th:text="${hd.company}"></span></td>
+    	<td><span th:text="${hd.employeeCount}"></span></td>
+    </tr>
+</table>
+
+</body>
+</html>

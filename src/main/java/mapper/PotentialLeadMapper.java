@@ -66,5 +66,8 @@ public interface PotentialLeadMapper {
 	@Options(useGeneratedKeys=false, keyProperty="id")
     public int insertPL(@Param("pl") PotentialLead pl);
 	
+	@Insert("INSERT INTO POTENTIAL_LEADS (ID, CITY, STATE) VALUES(#{pl.id}, #{pl.city}, #{pl.state})")
+	public int insertPLP2Demo(@Param("pl") PotentialLead pl);
+	
 	
 }

@@ -37,6 +37,7 @@ public class PotentialLead {
 	@Column(nullable = true, name = "POTENTIAL_LEAD_LOCATION__LONGITUDE__S")
 	private String potentialLeadLocationLongitude;
     private String sector;
+    @JsonAlias("STATE_2")
     private String state;
     private String status;
     private String street;
